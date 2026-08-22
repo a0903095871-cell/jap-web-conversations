@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NANI個人學習平台</title>
+    <meta name="description" content="NANI個人學習平台 - 專注於管理學、英文、行銷學的個人學習空間">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>NANI學習平台</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">首頁</a>
+                <a href="#courses" class="nav-link">課程</a>
+                <a href="notes-manager.html" class="nav-link">學習分享</a>
+                <a href="#about" class="nav-link">關於我</a>
+            </div>
+
+            <div class="nav-auth">
+                <button id="loginBtn" class="btn btn-outline">登入</button>
+                <button id="registerBtn" class="btn btn-primary">註冊</button>
+                <div id="userMenu" class="user-menu" style="display: none;">
+                    <img id="userAvatar" src="" alt="用戶頭像" class="user-avatar">
+                    <div class="user-dropdown">
+                        <a href="#profile" class="dropdown-item">個人資料</a>
+                        <a href="#my-courses" class="dropdown-item">我的課程</a>
+                        <a href="#favorites" class="dropdown-item">收藏</a>
+                        <button id="logoutBtn" class="dropdown-item">登出</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main>
+        <!-- 首頁橫幅 -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">NANI學習分享平台</h1>
+                    <p class="hero-subtitle">分享你的學習心得，與大家一起成長，專注於管理學、英文、行銷學的學習交流</p>
+                    <div class="hero-buttons">
+                        <a href="notes-manager.html" class="btn btn-primary btn-large">開始分享</a>
+                        <a href="notes-manager.html" class="btn btn-outline btn-large">瀏覽文章</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/600x400?text=學習平台" alt="學習平台">
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色課程 -->
+        <section id="featured-courses" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>特色課程</h2>
+                    <p>精選優質課程，助你快速提升技能</p>
+                </div>
+                <div id="featuredCoursesGrid" class="courses-grid">
+                    <!-- 課程卡片將在這裡動態生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 課程分類 -->
+        <section id="categories" class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>學習領域</h2>
+                    <p>專注於三個核心學習領域</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="管理學">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>管理學</h3>
+                        <p>組織管理、領導力、策略規劃等管理技能</p>
+                    </div>
+                    <div class="category-card" data-category="英文">
+                        <i class="fas fa-language"></i>
+                        <h3>英文</h3>
+                        <p>英語聽說讀寫、商務英語、考試準備</p>
+                    </div>
+                    <div class="category-card" data-category="行銷學">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>行銷學</h3>
+                        <p>數位行銷、品牌管理、市場分析等行銷技能</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新文章 -->
+        <section id="articles" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>最新文章</h2>
+                    <p>來自學習者的心得分享與經驗交流</p>
+                </div>
+                <div id="articlesGrid" class="articles-grid">
+                    <!-- 文章卡片將在這裡動態生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 學習統計 -->
+        <section class="section bg-primary text-white">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3 id="studyDays">0</h3>
+                        <p>學習天數</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-book"></i>
+                        <h3 id="totalNotes">0</h3>
+                        <p>筆記總數</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <h3 id="studyHours">0</h3>
+                        <p>學習時數</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-trophy"></i>
+                        <h3 id="achievements">0</h3>
+                        <p>學習成就</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 登入模態框 -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>登入</h2>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">電子郵件</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密碼</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">登入</button>
+            </form>
+            <p class="auth-switch">
+                還沒有帳號？ <a href="#" id="switchToRegister">立即註冊</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- 註冊模態框 -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>註冊</h2>
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="registerUsername">用戶名</label>
+                    <input type="text" id="registerUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">電子郵件</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">密碼</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">註冊</button>
+            </form>
+            <p class="auth-switch">
+                已有帳號？ <a href="#" id="switchToLogin">立即登入</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- 課程詳情模態框 -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <div id="courseModalContent">
+                <!-- 課程詳情將在這裡動態生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>學習分享平台</h3>
+                    <p>讓每個人都能分享知識，共同成長的現代化學習平台。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速連結</h4>
+                    <ul>
+                        <li><a href="#home">首頁</a></li>
+                        <li><a href="#courses">課程</a></li>
+                        <li><a href="#instructors">講師</a></li>
+                        <li><a href="#about">關於我們</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>支援</h4>
+                    <ul>
+                        <li><a href="#help">幫助中心</a></li>
+                        <li><a href="#contact">聯絡我們</a></li>
+                        <li><a href="#privacy">隱私政策</a></li>
+                        <li><a href="#terms">使用條款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>關注我們</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 學習分享平台. 保留所有權利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html> 
